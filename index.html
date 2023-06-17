@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <p>*Array Of Object*</p>
+    <h3>Question :<br><br>
+        let studentRecords = [ {name: 'John', id: 123, marks : 98 },<br>
+        {name: 'Baba', id: 101, marks : 23 },<br>
+        {name: 'yaga', id: 200, marks : 45 },<br>
+        {name: 'Wick', id: 115, marks : 75 } ] "</h3>
+    <hr>
+    <h3>Q1.We are interested in retrieving only the students' names; all the names should be in caps.<br>
+
+        ['JOHN', 'BABA', 'YAGA', 'WICK']</h3>
+    <pre>
+                studentRecords.map((item)=>{
+                    console.log(item.name.toUpperCase());
+                })
+            </pre>
+    <hr>
+    <h3>Q2.Suppose we have the same dataset as above but this time we want to get the details of students who scored
+        more than 50 marks.
+
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"</h3>
+    <pre>
+                    studentRecords.map((item)=>{
+                        if(item.marks>50){
+                            console.log(item);
+                        }
+                    })
+                </pre>
+    <hr>
+    <h3>Q3.Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h3>
+    <pre>
+                    let student=studentRecords.filter(item=>
+                         item.marks>50 && item.id>120);
+                       
+                </pre>
+                <b>Output-{name: 'John', id: 123, marks: 98 }</b>
+    <hr>
+    <h3>Q4.Consider the same scenario we have discussed above, but this time we would like to know the sum total of the
+        marks of the students.</h3>
+    <pre>
+                    let totalmarks=studentRecords.reduce((total,student)=>
+                    total+student.marks ,0);
+                    console.log(totalmarks) 
+                </pre>
+    <b>Output-241</b>
+    <hr>
+    <h3>Q5.This time we want to get only the names of the students who scored more than 50 marks from the same dataset
+        used above.</h3>
+    <pre>
+                    let names = studentRecords
+                     .filter(student => student.marks > 50)
+                     .map(student => student.name);
+
+                      console.log(names);
+                </pre>
+    <b>Output-John ,Wick</b>
+    <hr>
+    <h3>Q6.This time we are required to print the sum of marks of the students with id > 120.</h3>
+    <pre>
+                    let sumOfMarks = studentRecords
+                    .filter(student => student.id > 120)
+                    .reduce((sum, student) => sum + student.marks, 0);
+                  
+                  console.log(sumOfMarks);
+                </pre>
+    <b>Output-143</b>
+    <hr>
+    <h3>Q7.This time we are required to print the total marks of the students with marks greater than 50 after a grace
+        of 15 marks has been added to those students who scored less than 50.</h3>
+    <pre>
+                        let totalMarks = studentRecords
+                        .map(student => ({
+                          name: student.name,
+                          id: student.id,
+                          marks: student.marks < 50 ? student.marks + 15 : student.marks
+                        }))
+                        .filter(student => student.marks > 50)
+                        .reduce((sum, student) => sum + student.marks, 0);
+                      
+                      console.log(totalMarks);
+                     </pre>
+                     <b>Output-233</b>
+    <hr>
+    <h3>Q8.Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array
+        of objects. </h3>
+    <pre>
+                        let student1 = { name: 'shubhi', class: '12th', rollNo: '1001' };
+                        let student2 = { name: 'Nishu', class: '9th', rollNo: '2002' };
+                        let student3 = { name: 'Mayank', class: '5th', rollNo: '3003' };
+                        let student4 = { name: 'Saumya', class: '11th', rollNo: '4004' };
+                        let student5 = { name: 'Deeksha', class: '8th', rollNo: '5005' };
+                        let student6 = { name: 'vipul', class: '10th', rollNo: '6006' };
+                        
+                     
+                        let studentofArray = [student1, student2, student3, student4, student5, student6];
+                        
+                        console.log(studentofArray);
+                     </pre>
+                     <b>Output-Return the whole function</b>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
